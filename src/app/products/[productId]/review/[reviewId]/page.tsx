@@ -1,4 +1,4 @@
-import {notFound} from "next/navigation";
+import {redirect} from "next/navigation";
 export default function reviewDetails({
     params,
   }:{
@@ -6,7 +6,7 @@ export default function reviewDetails({
   }) {
     const {productId,reviewId}=params;
     if(parseInt(reviewId)>1000){
-        notFound();
+        redirect("/products")
     }
     return <h1>Review {reviewId} for Product {productId}</h1>;
   }
